@@ -1,0 +1,20 @@
+USE ROLE ACCOUNTADMIN;
+USE DATABASE ZOMATO;
+USE SCHEMA RAW;
+USE WAREHOUSE ZOMATO_WH;
+
+-- Dimensions = messy real source data -> tolerate & skip bad rows (CONTINUE).
+COPY INTO RAW.restaurants FROM @ZOMATO_RAW_STAGE/restaurants/  ON_ERROR = 'CONTINUE';
+COPY INTO RAW.users       FROM @ZOMATO_RAW_STAGE/user/        ON_ERROR = 'CONTINUE';
+COPY INTO RAW.food        FROM @ZOMATO_RAW_STAGE/food/         ON_ERROR = 'CONTINUE';
+COPY INTO RAW.menu        FROM @ZOMATO_RAW_STAGE/menu/         ON_ERROR = 'CONTINUE';
+-- Facts = clean generated data -> stay strict so counts are exact.
+COPY INTO RAW.orders      FROM @ZOMATO_RAW_STAGE/order/       ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO RAW.order_items FROM @ZOMATO_RAW_STAGE/order_items/  ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO RAW.reviews     FROM @ZOMATO_RAW_STAGE/review/      ON_ERROR = 'ABORT_STATEMENT';
+
+SELECT * FROM RAW.RESTAURANTS LIMIT 20;
+
+SELECT * FROM RAW.USERS LIMIT 20;
+
+SELECT * FROM RAW.REVIEWS LIMIT 20;
