@@ -1,0 +1,167 @@
+[0m19:38:00.730039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD143C30E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD11BE2490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD17ECFD90>]}
+
+
+============================== 19:38:00.793224 | aec0c2aa-59cc-4a53-8839-29f988d50268 ==============================
+[0m19:38:00.793224 [info ] [MainThread]: Running with dbt=1.12.6
+[0m19:38:00.794191 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\ESWAR\\.dbt', 'use_colors': 'True', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init zomato', 'log_path': 'logs'}
+[0m19:38:00.887780 [debug] [MainThread]: Starter project path: D:\Zomato-Project\.venv\Lib\site-packages\dbt\include\starter_project
+[0m19:38:00.900158 [info ] [MainThread]: Setting up your profile.
+[0m19:38:34.190884 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+DLL load failed while importing arrow_stream_iterator: An Application Control policy has blocked this file.
+[0m19:38:34.201457 [error] [MainThread]: Traceback (most recent call last):
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\cli\requires.py", line 198, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\cli\requires.py", line 144, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\cli\main.py", line 504, in init
+    results = task.run()
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\task\init.py", line 363, in run
+    self.setup_profile(profile_name)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\task\init.py", line 265, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\task\init.py", line 175, in create_profile_from_target
+    load_plugin(adapter)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\adapters\factory.py", line 239, in load_plugin
+    return FACTORY.load_plugin(name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\adapters\factory.py", line 68, in load_plugin
+    mod: Any = import_module("." + name, "dbt.adapters")
+               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESWAR\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\adapters\snowflake\__init__.py", line 3, in <module>
+    from dbt.adapters.snowflake.connections import SnowflakeConnectionManager
+  File "D:\Zomato-Project\.venv\Lib\site-packages\dbt\adapters\snowflake\connections.py", line 25, in <module>
+    import snowflake.connector
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\__init__.py", line 27, in <module>
+    from .connection import Connection, SnowflakeConnection
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\connection\__init__.py", line 18, in <module>
+    from ._connection import Connection, SnowflakeConnection
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\connection\_connection.py", line 54, in <module>
+    from ..cursor import CursorInstance, CursorType, DictCursor, SnowflakeCursor, SnowflakeCursorBase
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\cursor\__init__.py", line 14, in <module>
+    from .._internal.cursor import DictRow, QueryResultStats, ResultMetadata, ResultMetadataV2, Row
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\_internal\cursor\__init__.py", line 5, in <module>
+    from .base import CursorBaseMixin
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\_internal\cursor\base.py", line 42, in <module>
+    from .query_result import MultiStatementQueryResultState, QueryResult
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\_internal\cursor\query_result.py", line 4, in <module>
+    from ..arrow_stream_utils import release_arrow_stream
+  File "D:\Zomato-Project\.venv\Lib\site-packages\snowflake\connector\_internal\arrow_stream_utils.py", line 11, in <module>
+    from .arrow_stream_iterator import ArrowStreamIterator as CythonArrowStreamIterator
+ImportError: DLL load failed while importing arrow_stream_iterator: An Application Control policy has blocked this file.
+
+[0m19:38:34.204654 [debug] [MainThread]: Command `dbt init` failed at 19:38:34.204309 after 33.91 seconds
+[0m19:38:34.205567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD17C835C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD186C9010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FD17C9E470>]}
+[0m19:38:34.206233 [debug] [MainThread]: Flushing usage events
+[0m19:38:36.875978 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:39:45.248872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B52963C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B78C7ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B78C7B10>]}
+
+
+============================== 19:39:45.253082 | 6f422252-4ef3-410d-9825-b30354e56ab4 ==============================
+[0m19:39:45.253082 [info ] [MainThread]: Running with dbt=1.12.6
+[0m19:39:45.253870 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\ESWAR\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init zomato', 'log_path': 'logs'}
+[0m19:39:45.268121 [info ] [MainThread]: A project called zomato already exists here.
+[0m19:39:45.269379 [debug] [MainThread]: Command `dbt init` succeeded at 19:39:45.269171 after 0.29 seconds
+[0m19:39:45.269906 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B78E3230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B776EC30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287B78E6CF0>]}
+[0m19:39:45.270904 [debug] [MainThread]: Flushing usage events
+[0m19:39:47.462040 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:41:59.204941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E19D63C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E4007ED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E4007B10>]}
+
+
+============================== 19:41:59.209189 | 0f8fa51c-a011-4b45-8ee8-efb1fa4871ff ==============================
+[0m19:41:59.209189 [info ] [MainThread]: Running with dbt=1.12.6
+[0m19:41:59.210200 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\ESWAR\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init zomato', 'log_path': 'logs'}
+[0m19:41:59.224903 [debug] [MainThread]: Starter project path: D:\Zomato-Project\.venv\Lib\site-packages\dbt\include\starter_project
+[0m19:41:59.238516 [info ] [MainThread]: Setting up your profile.
+[0m19:42:04.764774 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:42:04.765244 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:42:04.765539 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:46:18.476741 [info ] [MainThread]: Profile zomato written to C:\Users\ESWAR\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
+[0m19:46:18.501576 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m19:46:18.503435 [info ] [MainThread]: dbt version: 1.12.6
+[0m19:46:18.504871 [info ] [MainThread]: python version: 3.13.2
+[0m19:46:18.505849 [info ] [MainThread]: python path: D:\Zomato-Project\.venv\Scripts\python.exe
+[0m19:46:18.506583 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m19:46:18.588089 [info ] [MainThread]: Using profiles dir at C:\Users\ESWAR\.dbt
+[0m19:46:18.589028 [info ] [MainThread]: Using profiles.yml file at C:\Users\ESWAR\.dbt\profiles.yml
+[0m19:46:18.589662 [info ] [MainThread]: Using dbt_project.yml file at D:\Zomato-Project\zomato\dbt_project.yml
+[0m19:46:18.591361 [info ] [MainThread]: adapter type: snowflake
+[0m19:46:18.592055 [info ] [MainThread]: adapter version: 1.12.5
+[0m19:46:18.723343 [info ] [MainThread]: Configuration:
+[0m19:46:18.724979 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m19:46:18.725618 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m19:46:18.726381 [info ] [MainThread]: Required dependencies:
+[0m19:46:18.727209 [debug] [MainThread]: Executing "git --help"
+[0m19:46:18.816455 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   history    EXPERIMENTAL: Rewrite history\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m19:46:18.817602 [debug] [MainThread]: STDERR: "b''"
+[0m19:46:18.818467 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m19:46:18.819512 [info ] [MainThread]: Connection:
+[0m19:46:18.820611 [info ] [MainThread]:   account: FJROKKD-GB38407
+[0m19:46:18.821675 [info ] [MainThread]:   user: ESWAR
+[0m19:46:18.822672 [info ] [MainThread]:   database: ZOMATO_WH
+[0m19:46:18.823493 [info ] [MainThread]:   warehouse: ZOMATO_WH
+[0m19:46:18.824066 [info ] [MainThread]:   role: DBT_ROLE
+[0m19:46:18.824989 [info ] [MainThread]:   schema: STAGING
+[0m19:46:18.826086 [info ] [MainThread]:   authenticator: None
+[0m19:46:18.826953 [info ] [MainThread]:   oauth_client_id: None
+[0m19:46:18.827466 [info ] [MainThread]:   query_tag: None
+[0m19:46:18.828338 [info ] [MainThread]:   client_session_keep_alive: False
+[0m19:46:18.829093 [info ] [MainThread]:   host: None
+[0m19:46:18.829678 [info ] [MainThread]:   port: None
+[0m19:46:18.830187 [info ] [MainThread]:   proxy_host: None
+[0m19:46:18.830721 [info ] [MainThread]:   proxy_port: None
+[0m19:46:18.831387 [info ] [MainThread]:   protocol: None
+[0m19:46:18.832156 [info ] [MainThread]:   connect_retries: 1
+[0m19:46:18.832741 [info ] [MainThread]:   connect_timeout: None
+[0m19:46:18.833413 [info ] [MainThread]:   retry_on_database_errors: False
+[0m19:46:18.834168 [info ] [MainThread]:   retry_all: False
+[0m19:46:18.835004 [info ] [MainThread]:   insecure_mode: False
+[0m19:46:18.835958 [info ] [MainThread]:   reuse_connections: True
+[0m19:46:18.836760 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m19:46:18.837363 [info ] [MainThread]:   workload_identity_provider: None
+[0m19:46:18.837889 [info ] [MainThread]:   workload_identity_entra_resource: None
+[0m19:46:18.838379 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m19:46:18.839354 [info ] [MainThread]: Registered adapter: snowflake=1.12.5
+[0m19:46:19.127887 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m19:46:19.150956 [debug] [MainThread]: Using snowflake connection "debug"
+[0m19:46:19.151663 [debug] [MainThread]: On debug: select 1 as id
+[0m19:46:19.152177 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:46:20.951611 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.799 seconds
+[0m19:46:20.954631 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m19:46:20.955644 [info ] [MainThread]: [32mAll checks passed![0m
+[0m19:46:20.956695 [info ] [MainThread]: Your new dbt project "zomato" was created!
+Initialized new project in D:\Zomato-Project\zomato\zomato
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:46:20.958867 [debug] [MainThread]: Command `dbt init` succeeded at 19:46:20.958649 after 261.98 seconds
+[0m19:46:20.959687 [debug] [MainThread]: Connection 'debug' was left open.
+[0m19:46:20.960095 [debug] [MainThread]: On debug: Close
+[0m19:46:21.135598 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E4C695B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E3EAEC30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000275E4D2BDF0>]}
+[0m19:46:21.136964 [debug] [MainThread]: Flushing usage events
+[0m19:46:22.795496 [debug] [MainThread]: An error was encountered while trying to flush usage events
